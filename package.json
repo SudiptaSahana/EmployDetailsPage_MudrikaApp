@@ -10,11 +10,20 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/dev": "^0.2.2",
+    "@expo-google-fonts/inter": "^0.2.2",
+    "@rneui/base": "^4.0.0-rc.2",
+    "@rneui/themed": "^4.0.0-rc.2",
     "expo": "~44.0.0",
+    "expo-font": "~10.0.4",
     "expo-status-bar": "~1.2.0",
+    "mysql": "^2.18.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-document-picker": "^8.1.0",
+    "react-native-elements": "^3.4.2",
+    "react-native-image-picker": "^4.8.2",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
