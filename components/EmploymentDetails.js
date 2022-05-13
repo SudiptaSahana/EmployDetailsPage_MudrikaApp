@@ -13,14 +13,10 @@ import React, { useEffect, useState } from "react";
 
 import InputText from "./InputText";
 
-import {
-  useFonts,
- 
-} from "expo-font";
+import { useFonts } from "expo-font";
 
 import { CheckBox, Input } from "react-native-elements";
 // import DocumentPicker from 'react-native-document-picker';
-
 
 function EmploymentDetails() {
   const location = "Location";
@@ -31,6 +27,10 @@ function EmploymentDetails() {
   const BusinessDescription = "Business Description";
   const [salaried, setSalaried] = useState(true);
   const [selfemployed, setSelfemployed] = useState(true);
+
+  const [loaded] = useFonts({
+    Montserrat: require("../assets/fonts/Montserrat-Regular.ttf"),
+  });
 
   const dropSalaried = () => {
     setSalaried(true);
@@ -64,10 +64,8 @@ function EmploymentDetails() {
 
   // }
 
-
   return (
     <View style={styles.mainContainer}>
- 
       {/* ----------------------Maintitle---------------------- */}
       <View>
         <Text style={styles.mainHeader}> Employment Details</Text>
@@ -95,7 +93,8 @@ function EmploymentDetails() {
             <Pressable
               style={styles.button1}
               onPress={() => {
-               this.openDocumentFile}}
+                this.openDocumentFile;
+              }}
             >
               <Text style={styles.text1}>Upload Bank Statement</Text>
             </Pressable>
@@ -174,7 +173,6 @@ function EmploymentDetails() {
 }
 
 const styles = StyleSheet.create({
-
   insideBox: {
     alignItems: "center",
     marginTop: -470,
@@ -269,7 +267,7 @@ const styles = StyleSheet.create({
   text: {
     // marginLeft: -50,
     padding: 10,
-    fontFamily: "Montserrat_400Regular",
+    fontFamily: "Montserrat",
     fontSize: 18,
     lineHeight: 21,
     fontWeight: "bold",
@@ -282,7 +280,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 10,
-    fontFamily: "Montserrat_400Regular",
+    fontFamily: "Montserrat",
     fontSize: 18,
     lineHeight: 21,
     fontWeight: "bold",
@@ -293,7 +291,7 @@ const styles = StyleSheet.create({
   text242: {
     fontSize: 18,
     width: 275,
-    fontFamily: "Montserrat_400Regular",
+    fontFamily: "Montserrat",
     fontWeight: 600,
     marginBottom: 7,
   },
