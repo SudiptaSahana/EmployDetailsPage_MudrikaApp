@@ -30,7 +30,7 @@ const styles= StyleSheet.create({
     inputStyle: {
       
         backgroundColor: "rgba(213, 243, 245, 1)",
-        width: 275,
+        width: 278,
         height: 62, 
         borderColor: "rgba(0, 0, 0, 1)",
         paddingHorizontal: 20,
@@ -38,8 +38,9 @@ const styles= StyleSheet.create({
         borderRadius: 5,
         fontFamily: "MontserratSemibold",
         fontSize: 18,
-        fontWeight:600,
+        fontWeight:"600",
         marginBottom:7,
+        marginLeft:5
     },
 })
 
