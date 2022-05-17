@@ -10,15 +10,17 @@ import {
   Pressable,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-
 import InputText from "./InputText";
-
 import { useFonts } from "expo-font";
-
 import { CheckBox, Input } from "react-native-elements";
-// import DocumentPicker from 'react-native-document-picker';
+import FilePicker from 'react-native-document-picker';
+
+
+
+
 
 function EmploymentDetails() {
+
   const location = "Location";
   const scheme = "Scheme";
   const companyname = "Company Name";
@@ -42,27 +44,17 @@ function EmploymentDetails() {
     setSelfemployed(true);
   };
 
-  // const openDocumentFile=()=>{
-  //   try{
-  //     const res =  DocumentPicker.pick({
-  //       type:[DocumentPicker.types.allFiles],
+ const handleFilePicker = async () =>{
+   try {
+    const response = await FilePicker.pick({
+     presentationStyle: 'fullScreen',
+   });  
 
-  //     });
-  //     console.log(
-  //       res.uri,
-  //       res.type,
-  //       res.name,
-  //       res.Size
-  //     );
-  //   } catch(err){
-  //     if(DocumentPicker.isCancel(err)){
-
-  //     }else{
-  //       throw err;
-  //     }
-  //   }
-
-  // }
+   console.log(response);
+   } catch (err) {
+     console.log(err);
+   }
+ };
 
   return (
     <View style={styles.mainContainer}>
@@ -89,11 +81,11 @@ function EmploymentDetails() {
             <InputText entry={companyname} />
 
             <InputText entry={MonthlyIncome} />
-
+            <View style={styles.salariedbuttons}>
             <Pressable
               style={styles.button1}
               onPress={() => {
-                this.openDocumentFile;
+                this.handleFilePicker;
               }}
             >
               <Text style={styles.text1}>Upload Bank Statement</Text>
@@ -106,6 +98,8 @@ function EmploymentDetails() {
             >
               <Text style={styles.text1}>Proceed</Text>
             </Pressable>
+            </View>
+            
           </View>
         ) : null}
 
@@ -119,9 +113,9 @@ function EmploymentDetails() {
             <InputText entry={MonthlyIncome} />
 
             <Pressable
-              style={styles.button0}
+              style={styles.button}
               onPress={() => {
-                Alert.alert("Submit ITR Statement(2 year)");
+                this.handleFilePicker;
               }}
             >
               <Text style={styles.text1}>ITR Statement(2 year)</Text>
@@ -216,38 +210,40 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 32,
-    borderRadius: 10,
+    borderRadius: 5,
     elevation: 3,
     backgroundColor: "#28655e",
-    width: 260,
-    height: 60,
+    width: 278,
+    height: 61,
     marginLeft: 5,
   },
 
   button0: {
-    marginTop: 20,
+    marginTop: 30,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 32,
-    borderRadius: 10,
+    borderRadius: 5,
     elevation: 3,
     backgroundColor: "#28655e",
-    width: 260,
-    height: 40,
+    width: 278,
+    height: 61,
     marginLeft: 5,
+
+    
   },
   button1: {
-    marginTop: 90,
+    marginTop: 10,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 32,
-    borderRadius: 10,
+    borderRadius: 5,
     elevation: 3,
     backgroundColor: "#28655e",
-    width: 260,
-    height: 40,
+    width: 278,
+    height: 61,
     marginLeft: 5,
   },
   button2: {
@@ -256,11 +252,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 32,
-    borderRadius: 10,
+    borderRadius: 5,
     elevation: 3,
     backgroundColor: "#28655e",
-    width: 260,
-    height: 40,
+    width: 278,
+    height: 61,
     marginLeft: 5,
   },
 
@@ -311,13 +307,19 @@ const styles = StyleSheet.create({
 
   hidden: {
     position: "absolute",
-    marginTop: 130,
+    marginTop: 90,
   },
 
   hidden1: {
     position: "absolute",
-    marginTop: 150,
+    marginTop: 210,
   },
+
+
+  salariedbuttons:{
+    position:"relative",
+    top:110
+  }
 });
 
 export default EmploymentDetails;
